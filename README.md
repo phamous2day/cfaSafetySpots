@@ -2,6 +2,7 @@
 A project for Code for Atlanta: Campus Safety
 
 ![picture](brainstorm.jpg)
+![picture](blueprint.jpg)
 
 ##My Milestones to reach
 * Get a sample Leaflet map to work
