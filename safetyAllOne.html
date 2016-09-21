@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="safetyApp">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/angular-leaflet-directive/0.10.0/angular-leaflet-directive.js"></script>
+
+  <link rel="stylesheet" href="http://tombatossals.github.io/angular-leaflet-directive/bower_components/leaflet/dist/leaflet.css" />
+  <script>
+  var app = angular.module("safetyApp", ["leaflet-directive"]);
+  app.controller('MarkersEventsAddController', [ '$scope', function($scope) {
+    angular.extend($scope, {
+      campus: {
+        lat: $scope.Latitude,
+        lng: $scope.Longitude,
+        zoom: 17
+      },
+      events: {}
+    });
+
+    $scope.markers = new Array();
+
+    $scope.removeMarkers = function() {
+      $scope.markers = {};
+    };
+
+    $scope.fetchMap = function(){
+      $scope.campus = {
+        lat: $scope.Latitude,
+        lng: $scope.Longitude,
+        zoom: 17
+      };
+  };
+
+
+$scope.$on("leafletDirectiveMap.click", function(event, args){
+  var leafEvent = args.leafletEvent;
+
+
+
+  $scope.markers.push({
+    lat: leafEvent.latlng.lat,
+    lng: leafEvent.latlng.lng,
+    message: "My Added Marker"
+  });
+});
+} ]);
+</script>
+</head>
+<body ng-controller="MarkersEventsAddController">
+  <leaflet lf-center="campus" markers="markers" event-broadcast="events" height="500px" width="100%"></leaflet>
+  <h1>Safety Spots</h1>
+
+  <form class="mapSummon">
+    <h2>Enter Campus GPS Coordinates</h2>
+    <div class="form-group">
+      <label for="input1">Latitude:</label>
+      <input ng-model="Latitude" type="input" class="form-control" id="input1" placeholder="33.7784626">
+      <br>
+    </div>
+    <div class="form-group">
+      <label for="Longitude">Longitude:</label>
+      <input ng-model="Longitude" type="input" class="form-control" id="input2" placeholder="-84.39888059999998">
+      <br>
+    </div>
+    <div class="submitBtn">
+      <button type="submit" class="btn" ng-click="fetchMap()">Submit</button>
+    </div>
+  </form>
+
+  <p>Click on the map to add a marker</p>
+  <button ng-click="removeMarkers()">Remove All Markers</button>
+
+</leaflet>
+</body>
+</html>
