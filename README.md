@@ -42,3 +42,6 @@ app.controller(‘ThingController’, [ ‘$scope’, function($scope) {
 Examples courtesty of here: [http://moduscreate.com/angularjs-tricks-with-angular-extend/](http://moduscreate.com/angularjs-tricks-with-angular-extend/)
 
 However, even with that implementation, there's still something fishy happening with how my input values are being bound to the function. I'm seeing error messages with "[AngularJS - Leaflet]  invalid 'center' " ...getting closer.
+
+###sidenotes:
+Found nifty plugin to adding 'search' for map [here](https://github.com/smeijer/L.GeoSearch)
