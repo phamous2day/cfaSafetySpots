@@ -7,17 +7,27 @@
   <script src ="https://cdnjs.cloudflare.com/ajax/libs/angular-leaflet-directive/0.10.0/angular-leaflet-directive.js"></script>
 
   <link rel="stylesheet" href="http://tombatossals.github.io/angular-leaflet-directive/bower_components/leaflet/dist/leaflet.css" />
+
+
   <script>
   var app = angular.module("safetyApp", ["leaflet-directive"]);
   app.controller('MarkersEventsAddController', [ '$scope', function($scope) {
     angular.extend($scope, {
       campus: {
-        lat: $scope.Latitude,
-        lng: $scope.Longitude,
-        zoom: 17
+        lat: 'Latitude',
+        lng: 'Longitude',
+        zoom: 17,
+        fetchMap: function() {
+          return $scope.Latitude + $scope.Longitude;
+        }
       },
-      events: {}
+      events:  
     });
+
+
+
+
+
 
     $scope.markers = new Array();
 
@@ -25,19 +35,12 @@
       $scope.markers = {};
     };
 
-    $scope.fetchMap = function(){
-      $scope.campus = {
-        lat: $scope.Latitude,
-        lng: $scope.Longitude,
-        zoom: 17
-      };
-  };
+
+
 
 
 $scope.$on("leafletDirectiveMap.click", function(event, args){
   var leafEvent = args.leafletEvent;
-
-
 
   $scope.markers.push({
     lat: leafEvent.latlng.lat,
@@ -45,9 +48,15 @@ $scope.$on("leafletDirectiveMap.click", function(event, args){
     message: "My Added Marker"
   });
 });
+
+
 } ]);
 </script>
 </head>
+
+
+
+
 <body ng-controller="MarkersEventsAddController">
   <leaflet lf-center="campus" markers="markers" event-broadcast="events" height="500px" width="100%"></leaflet>
   <h1>Safety Spots</h1>
@@ -55,17 +64,18 @@ $scope.$on("leafletDirectiveMap.click", function(event, args){
   <form class="mapSummon">
     <h2>Enter Campus GPS Coordinates</h2>
     <div class="form-group">
-      <label for="input1">Latitude:</label>
-      <input ng-model="Latitude" type="input" class="form-control" id="input1" placeholder="33.7784626">
+      <label for="latInput">Latitude:</label>
+      <input ng-model="latInput" type="input" class="form-control" id="input1" placeholder="40.7127837">
       <br>
     </div>
     <div class="form-group">
-      <label for="Longitude">Longitude:</label>
-      <input ng-model="Longitude" type="input" class="form-control" id="input2" placeholder="-84.39888059999998">
+      <label for="lngInput">Longitude:</label>
+      <input ng-model="lngInput" type="input" class="form-control" id="input2" placeholder="-74.00594130000002">
       <br>
     </div>
     <div class="submitBtn">
-      <button type="submit" class="btn" ng-click="fetchMap()">Submit</button>
+      <button type="submit" class="btn" ng-click="fetchMap()"
+      >Submit</button>
     </div>
   </form>
 
