@@ -3,6 +3,7 @@ A project for Code for Atlanta: Safety Spots
 
 ![picture](brainstorm.jpg)
 ![picture](blueprint.jpg)
+![picture](mvp1.png)
 
 ##My Milestones to reach
 * Get a sample Leaflet map to work
