@@ -44,5 +44,11 @@ Examples courtesty of here: [http://moduscreate.com/angularjs-tricks-with-angula
 
 However, even with that implementation, there's still something fishy happening with how my input values are being bound to the function. I'm seeing error messages with "[AngularJS - Leaflet]  invalid 'center' " ...getting closer.
 
-###sidenotes:
+###Side notes and Resources:
 Found nifty plugin to adding 'search' for map [here](https://github.com/smeijer/L.GeoSearch)
+
+How to [make custom icon markers](http://leafletjs.com/examples/custom-icons/)
+
+This [fiddle](http://jsfiddle.net/kedar2a/5VLJU/8/) helped me understand how to make markers without the use of scopes
+
+Thanks http://www.gps-coordinates.net/ for the [GPS Coordinates](http://www.gps-coordinates.net/)
