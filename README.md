@@ -1,9 +1,9 @@
 # cfaCampus-Safety
 A project for Code for Atlanta: Safety Spots
 
-![picture](brainstorm.jpg)
-![picture](blueprint.jpg)
-![picture](mvp1.png)
+![picture](src/img/brainstorm.jpg)
+![picture](src/img/blueprint.jpg)
+![picture](src/img/mvp1.png)
 
 ##My Milestones to reach
 * Get a sample Leaflet map to work
