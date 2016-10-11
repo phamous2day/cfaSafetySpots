@@ -22,7 +22,7 @@ My second MVP refactored into vanilla javascript and hand input fields into sear
 
 
 ##Obstacles
-## 1. Binding input fields to Controller using Angular
+## Binding input fields to Controller using Angular
 Got really close to polishing up an MVP. Right now, it has school GPS coordinates hardcoded and ability to make markers. However, I had a tough time understanding how "angular.extend" works. Little googling brought me to a good example. Let's consider the following transformation:
 
 Traditionally, how to write a function for ng-click would looke like this if modifying an object:
@@ -56,6 +56,11 @@ However, even with that implementation, there's still something fishy happening 
 
 ## Possibly converting whole project to ReactJS
 I've made the quintessential todo app using React. I'm pretty confident on converting my logic into components but not sure how it'll work once I incoporate NodeJS for the backend. With regards to earlier issues like the input fields, I ended up refactoring them into vanilla Javascript. More details on that later.
+
+## Future contributions I'd like the community to add
+I'd like for the ability for users to upload their own custom markers. I think this can be accomplished with the NPM module, [busboy](https://www.npmjs.com/package/busboy)
+
+This way, the map doesn't have to be limited to just emergency phones. It could be used to make maps of any kind with different markers. For example, if people ran a 5k, they could find out where the water stations are or first aid. Or people could use this app to make scavenger hunt for when they propopse to their significant others.
 
 ###Side notes and Resources:
 Found nifty plugin to adding 'search' for map [here](https://github.com/smeijer/L.GeoSearch)
