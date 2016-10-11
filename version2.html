@@ -14,20 +14,29 @@
   app.controller('MarkersEventsAddController', [ '$scope', function($scope) {
     angular.extend($scope, {
       campus: {
-        lat: 'Latitude',
-        lng: 'Longitude',
-        zoom: 17,
-        fetchMap: function() {
-          return $scope.Latitude + $scope.Longitude;
-        }
+        lat: 40.7127837,
+        lng: -74.00594130000002,
+        zoom: 17
       },
-      events:  
+      events: {}
     });
 
 
 
 
+    // var campus = function($scope) {
+    // 	return updateMarker( $('#latInput').val() , $('#lngInput').val());
+    // }
+    // $('#latInput').on('input', updateMarkerByInputs);
+    // $('#lngInput').on('input', updateMarkerByInputs);
 
+  // campus: {
+  //   lat: $scope.Latitude,
+  //   lng: $scope.Longitude,
+  //   zoom: 17
+  // },
+  // events: {}
+  // });
 
     $scope.markers = new Array();
 
