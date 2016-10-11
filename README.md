@@ -1,9 +1,18 @@
 # cfaCampus-Safety
 A project for Code for Atlanta: Safety Spots
 
+Our brainstorm of ideas on different features and technologies to incorporate
 ![picture](src/img/brainstorm.jpg)
+
+A sample blueprint of what I want the app to look like
 ![picture](src/img/blueprint.jpg)
+
+My first MVP with GPS coordinate fields
 ![picture](src/img/mvp1.png)
+
+My second MVP refactored into vanilla javascript and hand input fields into searchable icon plus custom phone markers
+![picture](src/img/mvp2.png)
+
 
 ##My Milestones to reach
 * Get a sample Leaflet map to work
