@@ -1,6 +1,11 @@
 # cfaCampus-Safety
 A project for Code for Atlanta: Safety Spots
 
+
+### Try it out here:
+####http://emergencyphonemap.surge.sh/
+
+
 Our brainstorm of ideas on different features and technologies to incorporate
 ![picture](src/img/brainstorm.jpg)
 
