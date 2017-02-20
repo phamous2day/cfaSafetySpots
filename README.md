@@ -30,7 +30,7 @@ My second MVP refactored into vanilla javascript and hand input fields into sear
 ## Binding input fields to Controller using Angular
 Got really close to polishing up an MVP. Right now, it has school GPS coordinates hardcoded and ability to make markers. However, I had a tough time understanding how "angular.extend" works. Little googling brought me to a good example. Let's consider the following transformation:
 
-Traditionally, how to write a function for ng-click would looke like this if modifying an object:
+Traditionally, how to write a function for ng-click would looks like this if modifying an object:
 
 ```js
 app.controller(‘ThingController’, [ ‘$scope’, function($scope) {
