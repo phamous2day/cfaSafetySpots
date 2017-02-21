@@ -4,6 +4,7 @@ Challenge was to create a map that marks all the emergency phones/booths on a ca
 
 
 Here's a picture of me at Georgia Tech's "The Garage" where I helped new members catch up to speed what was going on.
+
 ![picture](src/img/thegarage.jpg)
 
 
