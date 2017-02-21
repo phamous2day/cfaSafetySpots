@@ -1,9 +1,10 @@
 # cfaCampus-Safety
 A project for Code for Atlanta: Safety Spots
+Challenge was to create a map that marks all the emergency phones/booths on a campus. Ultimately, also create a backend portion to log user credentials so that students could store other markers for other events (e.g. water booths for a 5K run).
 
 
-### Try it out here:
-####http://emergencyphonemap.surge.sh/
+Here's a picture of me at Georgia Tech's "The Garage" where I helped new members catch up to speed what was going on.
+![picture](src/img/thegarage.jpg)
 
 
 Our brainstorm of ideas on different features and technologies to incorporate
