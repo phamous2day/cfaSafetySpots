@@ -1,7 +1,7 @@
 # cfaCampus-Safety
 A project for Code for Atlanta: Safety Spots
 
-##The Challenge 
+## The Challenge 
 To create a map that marks all the emergency phones/booths on a campus. Additional feature was to create a backend portion to log user credentials so that students could store other markers for other events (e.g. water booths for a 5K run).
 
 
@@ -22,14 +22,14 @@ My second MVP refactored into vanilla javascript and hand input fields into sear
 ![picture](src/img/mvp2.png)
 
 
-##My Milestones to reach
+## My Milestones to reach
 * Get a sample Leaflet map to work
 * Understand how Leaflet markers work, replace them with a library of safety icons (phones, waterbooths for marathons, etc.)
 * Create frontend that allows for people to enter GPS coordinates and make markers based on CRUD functionalities
 * If there's lots of time left, make a login at the request of Code for Atlanta (but really, a service like this shouldn't need a login IMHO)
 
 
-##Obstacles
+# Obstacles
 ## Binding input fields to Controller using Angular
 Got really close to polishing up an MVP. Right now, it has school GPS coordinates hardcoded and ability to make markers. However, I had a tough time understanding how "angular.extend" works. Little googling brought me to a good example. Let's consider the following transformation:
 
@@ -70,7 +70,7 @@ I'd like for the ability for users to upload their own custom markers. I think t
 
 This way, the map doesn't have to be limited to just emergency phones. It could be used to make maps of any kind with different markers. For example, if people ran a 5k, they could find out where the water stations are or first aid. Or people could use this app to make scavenger hunt for when they propopse to their significant others.
 
-###Side notes and Resources:
+### Side notes and Resources:
 Found nifty plugin to adding 'search' for map [here](https://github.com/smeijer/L.GeoSearch)
 
 How to [make custom icon markers](http://leafletjs.com/examples/custom-icons/)
