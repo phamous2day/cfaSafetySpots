@@ -4,13 +4,11 @@ A project for Code for Atlanta: Safety Spots
 ## The Challenge 
 To create a map that marks all the emergency phones/booths on a campus. Additional feature was to create a backend portion to log user credentials so that students could store other markers for other events (e.g. water booths for a 5K run).
 
-
-Me at "The Garage" explaining my frontend portion that used leaflet maps
-[![picture](src/img/thegarage.jpg)](https://www.facebook.com/codeforatlanta/photos/a.965856256801736.1073741827.134637019923668/1142606072460086/?type=3&theater)
-
-
 Our brainstorm of ideas on different features and technologies to incorporate
 ![picture](src/img/brainstorm.jpg)
+
+I taught newcomers the mechanics of the frontend components: main interface and how leaflet maps work
+[![picture](src/img/thegarage.jpg)](https://www.facebook.com/codeforatlanta/photos/a.965856256801736.1073741827.134637019923668/1142606072460086/?type=3&theater)
 
 A sample blueprint of what I want the app to look like
 ![picture](src/img/blueprint.jpg)
@@ -22,7 +20,7 @@ My second MVP refactored into vanilla javascript and hand input fields into sear
 ![picture](src/img/mvp2.png)
 
 
-## My Milestones to reach
+## Milestones
 * Get a sample Leaflet map to work
 * Understand how Leaflet markers work, replace them with a library of safety icons (phones, waterbooths for marathons, etc.)
 * Create frontend that allows for people to enter GPS coordinates and make markers based on CRUD functionalities
