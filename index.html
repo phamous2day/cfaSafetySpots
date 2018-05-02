@@ -3,8 +3,8 @@
 	<head>
 		<title>Map Maker</title>
 
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		<link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<script src="https://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 
 		<script src="../src/js/l.control.geosearch.js"></script>
 		<script src="../src/js/l.geosearch.provider.openstreetmap.js"></script>
@@ -27,7 +27,7 @@
 </div>
 	<script type="text/javascript">
 
-		var osmTileUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+		var osmTileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 		var basemap = new L.TileLayer(osmTileUrl, {maxZoom: 18});
 
 		var map = new L.Map('map', {
