@@ -1,138 +1,96 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Map Maker</title>
+<html ng-app="safetyApp">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/angular-leaflet-directive/0.10.0/angular-leaflet-directive.js"></script>
 
-		<link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-		<script src="https://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
-		<script src="../src/js/l.control.geosearch.js"></script>
-		<script src="../src/js/l.geosearch.provider.openstreetmap.js"></script>
-		<link rel="stylesheet" href="../src/css/l.geosearch.css" />
-	</head>
-	<body ng-controller="MarkersAddRemoveController">
+  <link rel="stylesheet" href="http://tombatossals.github.io/angular-leaflet-directive/bower_components/leaflet/dist/leaflet.css" />
 
 
-			<div id="map" style="position: absolute; top: 0; left: 0; width: 100%; height: 80%;"></div>
-
-
-<div>
-	<h2 style ="display: inline-block;  position: absolute;
-    bottom: 5%;" >Safety Spots</h2>
-</div>
-
-
-<div>
-
-</div>
-	<script type="text/javascript">
-
-		var osmTileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-		var basemap = new L.TileLayer(osmTileUrl, {maxZoom: 18});
-
-		var map = new L.Map('map', {
-			layers: [basemap],
-			center: new L.LatLng(53.2, 5.8), zoom: 12
-		});
-
-    new L.Control.GeoSearch({
-        provider: new L.GeoSearch.Provider.OpenStreetMap()
-    }).addTo(map);
+  <script>
+  var app = angular.module("safetyApp", ["leaflet-directive"]);
+  app.controller('MarkersEventsAddController', [ '$scope', function($scope) {
+    angular.extend($scope, {
+      campus: {
+        lat: 40.7127837,
+        lng: -74.00594130000002,
+        zoom: 17
+      },
+      events: {}
+    });
 
 
 
-// markers/
-var phoneIcon = L.icon({
-    iconUrl: 'src/img/phoneIcon.png',
-    shadowUrl: 'src/img/phoneshadow.png',
 
-    iconSize:     [38, 95], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    // var campus = function($scope) {
+    // 	return updateMarker( $('#latInput').val() , $('#lngInput').val());
+    // }
+    // $('#latInput').on('input', updateMarkerByInputs);
+    // $('#lngInput').on('input', updateMarkerByInputs);
+
+  // campus: {
+  //   lat: $scope.Latitude,
+  //   lng: $scope.Longitude,
+  //   zoom: 17
+  // },
+  // events: {}
+  // });
+
+    $scope.markers = new Array();
+
+    $scope.removeMarkers = function() {
+      $scope.markers = {};
+    };
+
+
+
+
+
+$scope.$on("leafletDirectiveMap.click", function(event, args){
+  var leafEvent = args.leafletEvent;
+
+  $scope.markers.push({
+    lat: leafEvent.latlng.lat,
+    lng: leafEvent.latlng.lng,
+    message: "My Added Marker"
+  });
 });
 
 
-// attaching function on map click
-map.on('click', onMapClick);
-
-// Script for adding marker on map click
-function onMapClick(e) {
-
-    var geojsonFeature = {
-        "type": "Feature",
-            "properties": {},
-            "geometry": {
-                "type": "Point",
-                "coordinates": [e.latlng.lat, e.latlng.lng]
-        }
-    }
-
-    var marker;
-
-    L.geoJson(geojsonFeature, {
-
-        pointToLayer: function(feature, latlng){
+} ]);
+</script>
+</head>
 
 
 
 
-            marker = L.marker(e.latlng, {
+<body ng-controller="MarkersEventsAddController">
+  <leaflet lf-center="campus" markers="markers" event-broadcast="events" height="500px" width="100%"></leaflet>
+  <h1>Safety Spots</h1>
 
-                title: "Resource Location",
-								icon: phoneIcon,
-                alt: "Resource Location",
-                riseOnHover: true,
-                draggable: true,
+  <form class="mapSummon">
+    <h2>Enter Campus GPS Coordinates</h2>
+    <div class="form-group">
+      <label for="latInput">Latitude:</label>
+      <input ng-model="latInput" type="input" class="form-control" id="input1" placeholder="40.7127837">
+      <br>
+    </div>
+    <div class="form-group">
+      <label for="lngInput">Longitude:</label>
+      <input ng-model="lngInput" type="input" class="form-control" id="input2" placeholder="-74.00594130000002">
+      <br>
+    </div>
+    <div class="submitBtn">
+      <button type="submit" class="btn" ng-click="fetchMap()"
+      >Submit</button>
+    </div>
+  </form>
 
-            }).bindPopup("<input type='button' value='Delete this marker' class='marker-delete-button'/>");
+  <p>Click on the map to add a marker</p>
+  <button ng-click="removeMarkers()">Remove All Markers</button>
 
-            marker.on("popupopen", onPopupOpen);
-
-            return marker;
-        }
-    }).addTo(map);
-}
-
-
-// Function to handle delete as well as other events on marker popup open
-function onPopupOpen() {
-
-    var tempMarker = this;
-
-    //var tempMarkerGeoJSON = this.toGeoJSON();
-
-    //var lID = tempMarker._leaflet_id; // Getting Leaflet ID of this marker
-
-    // To remove marker on click of delete
-    $(".marker-delete-button:visible").click(function () {
-        map.removeLayer(tempMarker);
-    });
-}
-
-
-// getting all the markers at once
-function getAllMarkers() {
-
-    var allMarkersObjArray = [];//new Array();
-    var allMarkersGeoJsonArray = [];//new Array();
-
-    $.each(map._layers, function (ml) {
-        //console.log(map._layers)
-        if (map._layers[ml].feature) {
-
-            allMarkersObjArray.push(this)
-                                    allMarkersGeoJsonArray.push(JSON.stringify(this.toGeoJSON()))
-        }
-    })
-
-    console.log(allMarkersObjArray);
-    alert("total Markers : " + allMarkersGeoJsonArray.length + "\n\n" + allMarkersGeoJsonArray + "\n\n Also see your console for object view of this array" );
-}
-
-
-	</script>
-
+</leaflet>
 </body>
 </html>
